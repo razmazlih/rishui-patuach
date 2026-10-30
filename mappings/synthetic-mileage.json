@@ -1,0 +1,49 @@
+{
+  "id": "synthetic-mileage",
+  "kind": "mileage",
+  "name": "נסועה סינתטית",
+  "version": "1",
+  "verified": true,
+  "synthetic": true,
+  "encoding": "utf-8-sig",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "keys": [
+    "record_id"
+  ],
+  "coverage": {
+    "description": "נתוני בדיקה סינתטיים בלבד",
+    "as_of": "2026-10-01",
+    "date_precision": "day",
+    "stale_after_days": 90,
+    "scope": "synthetic fixtures only"
+  },
+  "official_url": null,
+  "fields": {
+    "record_id": {
+      "target": "record_id",
+      "type": "text",
+      "required": true
+    },
+    "plate": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "kilometers": {
+      "target": "kilometers",
+      "type": "integer",
+      "required": false
+    },
+    "measured_at": {
+      "target": "measured_at",
+      "type": "month",
+      "required": false,
+      "precision": "month"
+    }
+  },
+  "required_sources": [
+    "synthetic-vehicles"
+  ]
+}

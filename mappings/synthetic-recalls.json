@@ -1,0 +1,60 @@
+{
+  "id": "synthetic-recalls",
+  "kind": "recalls",
+  "name": "ריקולים סינתטיים",
+  "version": "1",
+  "verified": true,
+  "synthetic": true,
+  "encoding": "utf-8-sig",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "keys": [
+    "record_id"
+  ],
+  "coverage": {
+    "description": "נתוני בדיקה סינתטיים בלבד",
+    "as_of": "2026-10-01",
+    "date_precision": "day",
+    "stale_after_days": 90,
+    "scope": "synthetic fixtures only"
+  },
+  "official_url": null,
+  "fields": {
+    "record_id": {
+      "target": "record_id",
+      "type": "text",
+      "required": true
+    },
+    "plate": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "recall_id": {
+      "target": "recall_id",
+      "type": "text",
+      "required": false
+    },
+    "description": {
+      "target": "description",
+      "type": "text",
+      "required": false
+    },
+    "announced_at": {
+      "target": "announced_at",
+      "type": "date",
+      "required": false,
+      "precision": "day"
+    },
+    "status": {
+      "target": "status",
+      "type": "text",
+      "required": false
+    }
+  },
+  "verified_plate_link": true,
+  "required_sources": [
+    "synthetic-vehicles"
+  ]
+}

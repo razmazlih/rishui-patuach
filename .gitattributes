@@ -1,0 +1,4 @@
+# Keep fixture encodings, BOMs and CSV CRLF bytes unchanged.
+tests/fixtures/*.csv -text whitespace=cr-at-eol
+# This fixture intentionally uses Windows-1255, not UTF-8.
+tests/fixtures/ownership.csv -diff

@@ -1,0 +1,55 @@
+{
+  "id": "synthetic-ownership",
+  "kind": "ownership",
+  "name": "תקופות בעלות סינתטיות",
+  "version": "1",
+  "verified": true,
+  "synthetic": true,
+  "encoding": "windows-1255",
+  "encoding_verified": true,
+  "delimiter": ",",
+  "keys": [
+    "record_id"
+  ],
+  "coverage": {
+    "description": "נתוני בדיקה סינתטיים בלבד",
+    "as_of": "2026-10-01",
+    "date_precision": "day",
+    "stale_after_days": 90,
+    "scope": "synthetic fixtures only"
+  },
+  "official_url": null,
+  "fields": {
+    "record_id": {
+      "target": "record_id",
+      "type": "text",
+      "required": true
+    },
+    "plate": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "ownership_type": {
+      "target": "ownership_type",
+      "type": "text",
+      "required": false
+    },
+    "start_date": {
+      "target": "start_date",
+      "type": "month",
+      "required": false,
+      "precision": "month"
+    },
+    "end_date": {
+      "target": "end_date",
+      "type": "month",
+      "required": false,
+      "precision": "month"
+    }
+  },
+  "required_sources": [
+    "synthetic-vehicles"
+  ]
+}
