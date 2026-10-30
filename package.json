@@ -1,0 +1,31 @@
+{
+  "name": "rechev-local",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --webpack",
+    "build": "next build --webpack",
+    "start": "HOSTNAME=127.0.0.1 node .next/standalone/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test lib/*.test.ts",
+    "test:e2e": "playwright test",
+    "postbuild": "node -e \"require('node:fs').cpSync('.next/static','.next/standalone/.next/static',{recursive:true})\""
+  },
+  "dependencies": {
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "pg": "8.16.3"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22.19.1",
+    "@types/react": "19.1.17",
+    "@types/react-dom": "19.1.11",
+    "@types/pg": "8.15.6",
+    "tailwindcss": "4.1.17",
+    "@tailwindcss/postcss": "4.1.17",
+    "tsx": "4.20.6",
+    "@playwright/test": "1.56.1"
+  }
+}
