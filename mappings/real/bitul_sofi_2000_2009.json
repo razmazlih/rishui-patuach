@@ -1,0 +1,134 @@
+{
+  "id": "mot-ec8cbc34-72e1-4b69-9c48-22821ba0bd6c",
+  "source_file": "bitul_sofi_2000_2009.csv",
+  "resource_id": "ec8cbc34-72e1-4b69-9c48-22821ba0bd6c",
+  "kind": "statuses",
+  "name": "כלי רכב שירדו מהכביש ובסטטוס ביטול סופי 2000-2009",
+  "version": "real-1",
+  "verified": true,
+  "synthetic": false,
+  "official_url": "https://data.gov.il/api/3/action/resource_show?id=ec8cbc34-72e1-4b69-9c48-22821ba0bd6c",
+  "encoding": "utf-8-sig",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "dialect": "mot_envelope",
+  "dialect_verified": true,
+  "key_mode": "row_number",
+  "keys": [],
+  "fields": {
+    "mispar_rechev": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "tozeret_cd": {
+      "target": "manufacturer_code",
+      "type": "text"
+    },
+    "tozeret_nm": {
+      "target": "manufacturer",
+      "type": "text"
+    },
+    "degem_cd": {
+      "target": "model_code",
+      "type": "text"
+    },
+    "degem_nm": {
+      "target": "model",
+      "type": "text"
+    },
+    "sug_rechev_cd": {
+      "ignore": true
+    },
+    "sug_rechev_nm": {
+      "ignore": true
+    },
+    "moed_aliya_lakvish": {
+      "target": "first_registration_date_raw",
+      "type": "text"
+    },
+    "bitul_dt": {
+      "target": "cancellation_date",
+      "type": "date",
+      "formats": [
+        "iso_date",
+        "iso_datetime"
+      ]
+    },
+    "misgeret": {
+      "ignore": true
+    },
+    "tozar_manoa": {
+      "ignore": true
+    },
+    "degem_manoa": {
+      "ignore": true
+    },
+    "mispar_manoa": {
+      "ignore": true
+    },
+    "mishkal_kolel": {
+      "ignore": true
+    },
+    "ramat_gimur": {
+      "target": "trim",
+      "type": "text"
+    },
+    "ramat_eivzur_betihuty": {
+      "ignore": true
+    },
+    "kvutzat_zihum": {
+      "ignore": true
+    },
+    "shnat_yitzur": {
+      "target": "year",
+      "type": "text"
+    },
+    "baalut": {
+      "target": "current_ownership_type",
+      "type": "text"
+    },
+    "tzeva_rechev": {
+      "target": "color",
+      "type": "text"
+    },
+    "zmig_kidmi": {
+      "ignore": true
+    },
+    "zmig_ahori": {
+      "ignore": true
+    },
+    "sug_delek_nm": {
+      "target": "fuel",
+      "type": "text"
+    },
+    "horaat_rishum": {
+      "ignore": true
+    },
+    "kinuy_mishari": {
+      "target": "commercial_name",
+      "type": "text"
+    }
+  },
+  "publication_hold": [],
+  "coverage": {
+    "description": "מאגר זה מכיל פרטים טכניים אודות רכבים שירדו מהכביש החל משנת 2010 ובסטטוס ביטול סופי. הנתונים הם: מספר רכב, קוד תוצר, שם תוצר, קוד דגם, שם דגם, קוד סוג רכב, שם סוג רכב, מועד עליה לכביש, תאריך ביטול, מספר שילדה, תוצר מנוע, דגם מנוע, מספר מנוע, משקל כולל.",
+    "as_of": null,
+    "date_precision": null,
+    "scope": "official source coverage; local snapshot date unknown",
+    "official_metadata_updated": "2023-05-02T04:26:32.042795",
+    "source_resource_id": "ec8cbc34-72e1-4b69-9c48-22821ba0bd6c"
+  },
+  "verification": {
+    "official_headers_exact": true,
+    "official_metadata": "data/reports/official-metadata.json",
+    "field_semantics": "docs/REAL_SOURCES.md",
+    "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
+    "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
+    "sampled_records": 1000,
+    "full_validation_required": true
+  },
+  "max_unmatched_rate": 1,
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name."
+}

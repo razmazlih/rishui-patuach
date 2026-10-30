@@ -1,0 +1,78 @@
+{
+  "id": "mot-0866573c-40cd-4ca8-91d2-9dd2d7a492e5",
+  "source_file": "0866573c-40cd-4ca8-91d2-9dd2d7a492e5.csv",
+  "resource_id": "0866573c-40cd-4ca8-91d2-9dd2d7a492e5",
+  "kind": "statuses",
+  "name": "מספרי רישוי של כלי רכב פרטיים ומסחריים - המשך",
+  "version": "real-1",
+  "verified": true,
+  "synthetic": false,
+  "official_url": "https://data.gov.il/api/3/action/resource_show?id=0866573c-40cd-4ca8-91d2-9dd2d7a492e5",
+  "encoding": "utf-8-sig",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "dialect": "csv",
+  "dialect_verified": true,
+  "key_mode": "row_number",
+  "keys": [],
+  "fields": {
+    "mispar_rechev": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "tozeret_cd": {
+      "target": "manufacturer_code",
+      "type": "text"
+    },
+    "sug_degem": {
+      "target": "model_type",
+      "type": "text"
+    },
+    "degem_cd": {
+      "target": "model_code",
+      "type": "text"
+    },
+    "kod_omes_tzmig_kidmi": {
+      "target": "front_tire_load_code",
+      "type": "text"
+    },
+    "kod_omes_tzmig_ahori": {
+      "target": "rear_tire_load_code",
+      "type": "text"
+    },
+    "kod_mehirut_tzmig_kidmi": {
+      "target": "front_tire_speed_code",
+      "type": "text"
+    },
+    "kod_mehirut_tzmig_ahori": {
+      "target": "rear_tire_speed_code",
+      "type": "text"
+    },
+    "grira_nm": {
+      "target": "towing_description",
+      "type": "text"
+    }
+  },
+  "publication_hold": [],
+  "coverage": {
+    "description": "מאגר זה מכיל מידע רשמי של מספרי רישוי של כלי הרכב הפעילים הפרטיים משנת יצור 1996 ומעלה ומספרי הרישוי של כלי הרכב הפעילים המסחריים במשקל עד 3,500 ק\"ג משנת יצור 1998 ומעלה.",
+    "as_of": null,
+    "date_precision": null,
+    "scope": "official source coverage; local snapshot date unknown",
+    "official_metadata_updated": "2026-10-30T03:40:20.676519",
+    "source_resource_id": "0866573c-40cd-4ca8-91d2-9dd2d7a492e5"
+  },
+  "verification": {
+    "official_headers_exact": true,
+    "official_metadata": "data/reports/official-metadata.json",
+    "field_semantics": "docs/REAL_SOURCES.md",
+    "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
+    "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
+    "sampled_records": 1000,
+    "full_validation_required": true
+  },
+  "max_unmatched_rate": 1,
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name."
+}

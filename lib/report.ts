@@ -3,4 +3,4 @@ export type Source = {id: string; name: string; kind: string; updated_at: string
 export type Group = {state: string; rows: DataRow[]; sources: Source[]; withheld_undated_count?: number};
 export type Report = {plate: string; mode: 'demo'|'live'; groups: Record<string,Group>};
 export const groupNames: Record<string,string> = {vehicles:'זיהוי ורישוי',specs:'מפרט טכני',ownership:'תקופות בעלות',mileage:'מדידות נסועה',statuses:'סטטוסים ושינויים',recalls:'ריקולים מותאמים'};
-export const stateLabels: Record<string,string> = {ambiguous:'התאמה עמומה — המפרט אינו מוצג',available:'נמצאו נתונים',not_found:'לא נמצאה רשומה',not_loaded:'המקור טרם נטען',unavailable:'המקור אינו זמין',not_covered:'המידע אינו מכוסה',stale:'המידע עשוי להיות לא עדכני'};
+export const stateLabels: Record<string,string> = {unverified_link:'הקישור למפרט טרם אומת',quality_failed:'המקור נחסם בבדיקות איכות',ambiguous:'התאמה עמומה — נדרש בירור',available:'נמצאו נתונים',not_found:'לא נמצאה רשומה',not_loaded:'המקור טרם נטען',unavailable:'המקור אינו זמין',not_covered:'המידע אינו מכוסה',stale:'המידע עשוי להיות לא עדכני'};

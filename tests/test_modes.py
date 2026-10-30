@@ -77,8 +77,10 @@ class ProductionModes(unittest.TestCase):
             report = json.loads(body)
             self.assertEqual(report['mode'], 'live')
             for group in report['groups'].values():
-                self.assertEqual(group['rows'], [])
-                self.assertEqual(group['state'], 'not_loaded')
+                for row in group['rows']:
+                    self.assertFalse(row['source_id'].startswith('synthetic-'))
+                for source in group['sources']:
+                    self.assertFalse(source['id'].startswith('synthetic-'))
 
     def test_database_failure_never_falls_back_to_demo(self):
         with server(3102, 'live', 'postgresql://invalid:invalid@127.0.0.1:1/unreachable') as base:

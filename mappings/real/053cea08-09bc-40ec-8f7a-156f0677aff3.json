@@ -1,0 +1,152 @@
+{
+  "id": "mot-053cea08-09bc-40ec-8f7a-156f0677aff3",
+  "source_file": "053cea08-09bc-40ec-8f7a-156f0677aff3.csv",
+  "resource_id": "053cea08-09bc-40ec-8f7a-156f0677aff3",
+  "kind": "vehicles",
+  "name": "מאגר מספרי רישוי של כלי רכב",
+  "version": "real-1",
+  "verified": true,
+  "synthetic": false,
+  "official_url": "https://data.gov.il/api/3/action/resource_show?id=053cea08-09bc-40ec-8f7a-156f0677aff3",
+  "encoding": "windows-1255",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "dialect": "mot_envelope_bytesbridge",
+  "dialect_verified": true,
+  "key_mode": "fields",
+  "keys": [
+    "plate"
+  ],
+  "fields": {
+    "mispar_rechev": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "tozeret_cd": {
+      "target": "manufacturer_code",
+      "type": "text"
+    },
+    "sug_degem": {
+      "target": "model_type",
+      "type": "text"
+    },
+    "tozeret_nm": {
+      "target": "manufacturer",
+      "type": "text"
+    },
+    "degem_cd": {
+      "target": "model_code",
+      "type": "text"
+    },
+    "degem_nm": {
+      "target": "model",
+      "type": "text"
+    },
+    "ramat_gimur": {
+      "target": "trim",
+      "type": "text"
+    },
+    "ramat_eivzur_betihuty": {
+      "ignore": true
+    },
+    "kvutzat_zihum": {
+      "ignore": true
+    },
+    "shnat_yitzur": {
+      "target": "year",
+      "type": "text"
+    },
+    "degem_manoa": {
+      "ignore": true
+    },
+    "mivchan_acharon_dt": {
+      "target": "test_date",
+      "type": "date",
+      "formats": [
+        "iso_date",
+        "iso_datetime"
+      ]
+    },
+    "tokef_dt": {
+      "target": "license_valid_until",
+      "type": "date",
+      "formats": [
+        "iso_date",
+        "iso_datetime"
+      ]
+    },
+    "baalut": {
+      "target": "current_ownership_type",
+      "type": "text"
+    },
+    "misgeret": {
+      "ignore": true
+    },
+    "tzeva_cd": {
+      "ignore": true
+    },
+    "tzeva_rechev": {
+      "target": "color",
+      "type": "text"
+    },
+    "zmig_kidmi": {
+      "ignore": true
+    },
+    "zmig_ahori": {
+      "ignore": true
+    },
+    "sug_delek_nm": {
+      "target": "fuel",
+      "type": "text"
+    },
+    "horaat_rishum": {
+      "ignore": true
+    },
+    "moed_aliya_lakvish": {
+      "target": "first_registration_date_raw",
+      "type": "text"
+    },
+    "kinuy_mishari": {
+      "target": "commercial_name",
+      "type": "text"
+    }
+  },
+  "publication_hold": [],
+  "coverage": {
+    "description": "מאגר זה מכיל מידע רשמי של מספרי רישוי של כלי הרכב הפעילים הפרטיים משנת יצור 1996 ומעלה ומספרי הרישוי של כלי הרכב הפעילים המסחריים במשקל עד 3,500 ק\"ג משנת יצור 1998 ומעלה.",
+    "as_of": null,
+    "date_precision": null,
+    "scope": "official source coverage; local snapshot date unknown",
+    "official_metadata_updated": "2026-10-30T03:36:46.314529",
+    "source_resource_id": "053cea08-09bc-40ec-8f7a-156f0677aff3",
+    "quarantine_note": "מקור חלקי: עד 3 רשומות עם שגיאת פענוח יבודדו במלואן, ללא תיקון או ניחוש תווים. הספירה המדויקת מופיעה בדוח היבוא."
+  },
+  "verification": {
+    "official_headers_exact": true,
+    "official_metadata": "data/reports/official-metadata.json",
+    "field_semantics": "docs/REAL_SOURCES.md",
+    "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
+    "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
+    "sampled_records": 1000,
+    "full_validation_required": true,
+    "quarantine_policy": "Explicit audited bounded whole-record rejection; no ignore or replacement; source bytes retained unchanged."
+  },
+  "max_unmatched_rate": 1,
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name.",
+  "candidate_composite_key_fields": [
+    "model_type",
+    "manufacturer_code",
+    "model_code",
+    "year"
+  ],
+  "full_audit_report": "data/reports/audit-mot-bytes-main-20261030/053cea08-09bc-40ec-8f7a-156f0677aff3.audit.json",
+  "quarantine_policy": {
+    "max_records": 3,
+    "max_fraction": 1e-06,
+    "allowed_reasons": [
+      "decode_error"
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "id": "mot-cd3acc5c-03c3-4c89-9c54-d40f93c0d790",
+  "source_file": "cd3acc5c-03c3-4c89-9c54-d40f93c0d790.csv",
+  "resource_id": "cd3acc5c-03c3-4c89-9c54-d40f93c0d790",
+  "kind": "vehicles",
+  "name": "מאגר כלי רכב מעל 3 וחצי טון וכלי רכב חסרי קוד דגם",
+  "version": "real-1",
+  "verified": true,
+  "synthetic": false,
+  "official_url": "https://data.gov.il/api/3/action/resource_show?id=cd3acc5c-03c3-4c89-9c54-d40f93c0d790",
+  "encoding": "windows-1255",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "dialect": "mot_envelope",
+  "dialect_verified": true,
+  "key_mode": "fields",
+  "keys": [
+    "plate"
+  ],
+  "fields": {
+    "mispar_rechev": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "mispar_shilda": {
+      "ignore": true
+    },
+    "tkina_EU": {
+      "ignore": true
+    },
+    "shnat_yitzur": {
+      "target": "year",
+      "type": "text"
+    },
+    "tozeret_cd": {
+      "target": "manufacturer_code",
+      "type": "text"
+    },
+    "tozeret_nm": {
+      "target": "manufacturer",
+      "type": "text"
+    },
+    "tozeret_eretz_nm": {
+      "ignore": true
+    },
+    "sug_delek_cd": {
+      "ignore": true
+    },
+    "sug_delek_nm": {
+      "target": "fuel",
+      "type": "text"
+    },
+    "mishkal_kolel": {
+      "ignore": true
+    },
+    "mishkal_azmi": {
+      "ignore": true
+    },
+    "degem_nm": {
+      "target": "model",
+      "type": "text"
+    },
+    "nefach_manoa": {
+      "ignore": true
+    },
+    "degem_manoa": {
+      "ignore": true
+    },
+    "hanaa_cd": {
+      "ignore": true
+    },
+    "hanaa_nm": {
+      "ignore": true
+    },
+    "mishkal_mitan_harama": {
+      "ignore": true
+    },
+    "moed_aliya_lakvish": {
+      "target": "first_registration_date_raw",
+      "type": "text"
+    },
+    "horaat_rishum": {
+      "ignore": true
+    },
+    "mispar_mekomot_leyd_nahag": {
+      "ignore": true
+    },
+    "mispar_mekomot": {
+      "ignore": true
+    },
+    "kvutzat_sug_rechev": {
+      "ignore": true
+    },
+    "grira_nm": {
+      "ignore": true
+    },
+    "zmig_kidmi": {
+      "ignore": true
+    },
+    "zmig_ahori": {
+      "ignore": true
+    },
+    "mispar_manoa": {
+      "ignore": true
+    },
+    "sranim": {
+      "ignore": true
+    }
+  },
+  "publication_hold": [],
+  "coverage": {
+    "description": "מאגר זה מכיל פרטים טכניים אודות כלי הרכב הפעילים וחסרי קוד דגם מהסוג הבא: גרור נתמך, טרקטור, רכב עבודה, משא, אוטובוס. השדות במאגר: מספר רישוי, מספר שילדה, סיווג תקינה אירופאית, שנת ייצור, קוד תוצר, שם תוצר, ארץ ייצור, קוד סוג דלק, סוג דלק, משקל כולל, שם דגם.",
+    "as_of": null,
+    "date_precision": null,
+    "scope": "official source coverage; local snapshot date unknown",
+    "official_metadata_updated": "2026-10-30T03:35:32.626826",
+    "source_resource_id": "cd3acc5c-03c3-4c89-9c54-d40f93c0d790"
+  },
+  "verification": {
+    "official_headers_exact": true,
+    "official_metadata": "data/reports/official-metadata.json",
+    "field_semantics": "docs/REAL_SOURCES.md",
+    "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
+    "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
+    "sampled_records": 1000,
+    "full_validation_required": true
+  },
+  "max_unmatched_rate": 1,
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name."
+}

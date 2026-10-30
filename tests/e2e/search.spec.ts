@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+test.skip(process.env.E2E_LIVE === '1', 'Synthetic cases must not run against live data');
+
 const plate = process.env.E2E_PLATE || '01234567';
 
 test('Hebrew search uses imported PostgreSQL data and has responsive RTL layout', async ({ page }) => {

@@ -33,7 +33,8 @@ def migrate():
         for schema in ('demo', 'live'):
             conn.execute(f'CREATE SCHEMA IF NOT EXISTS {schema}')
             conn.execute(f'SET search_path TO {schema}, public')
-            conn.execute((ROOT / 'db/001_initial.sql').read_text())
+            for migration in sorted((ROOT / 'db').glob('[0-9]*.sql')):
+                conn.execute(migration.read_text())
 
 def digest(path):
     h = hashlib.sha256()
@@ -272,7 +273,7 @@ def rollback(source, run_id):
         row = conn.execute("SELECT id,report FROM import_runs WHERE id=%s AND source_id=%s AND state='published'",(run_id,source)).fetchone()
         if not row: raise ValueError('Only successfully published run can be restored')
         snapshot=row[1]['mapping_snapshot']
-        conn.execute("UPDATE sources SET active_run_id=%s,updated_at=now(),coverage=%s::jsonb,name=%s,official_url=%s WHERE id=%s",(run_id,json.dumps(snapshot['coverage']),snapshot['name'],snapshot.get('official_url'),source))
+        conn.execute("UPDATE sources SET active_run_id=%s,updated_at=now(),coverage=%s::jsonb,name=%s,official_url=%s WHERE id=%s",(run_id,json.dumps(row[1].get('published_coverage',snapshot['coverage'])),snapshot['name'],snapshot.get('official_url'),source))
     return {'status':'rolled_back','run_id':run_id}
 
 def main():

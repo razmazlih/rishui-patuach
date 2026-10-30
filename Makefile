@@ -48,3 +48,10 @@ modes:
 test: unit integration api e2e modes
 benchmark:
 	$(PY) scripts/benchmark.py --rows $(or $(ROWS),100000)
+
+stage-real:
+	DATA_MODE=live $(PY) -m importer.real stage "$(FILE)" --mapping "$(MAPPING)"
+promote-real:
+	DATA_MODE=live $(PY) -m importer.real promote "$(RUN)"
+e2e-live:
+	E2E_LIVE=1 npm run test:e2e -- --grep 'live imported'

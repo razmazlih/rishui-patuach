@@ -1,0 +1,87 @@
+{
+  "id": "mot-5e87a7a1-2f6f-41c1-8aec-7216d52a6cf6",
+  "source_file": "5e87a7a1-2f6f-41c1-8aec-7216d52a6cf6.csv",
+  "resource_id": "5e87a7a1-2f6f-41c1-8aec-7216d52a6cf6",
+  "kind": "model_counts",
+  "name": "מאגר כמויות כלי רכב לפי תוצר, דגם ושנת יצור",
+  "version": "real-1",
+  "verified": true,
+  "synthetic": false,
+  "official_url": "https://data.gov.il/api/3/action/resource_show?id=5e87a7a1-2f6f-41c1-8aec-7216d52a6cf6",
+  "encoding": "windows-1255",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "dialect": "mot_envelope",
+  "dialect_verified": true,
+  "key_mode": "fields",
+  "keys": [
+    "model_type",
+    "manufacturer_code",
+    "model_code",
+    "year"
+  ],
+  "fields": {
+    "sug_degem": {
+      "target": "model_type",
+      "type": "text"
+    },
+    "tozeret_cd": {
+      "target": "manufacturer_code",
+      "type": "text"
+    },
+    "tozeret_nm": {
+      "target": "manufacturer",
+      "type": "text"
+    },
+    "tozeret_eretz_nm": {
+      "ignore": true
+    },
+    "tozar": {
+      "ignore": true
+    },
+    "degem_cd": {
+      "target": "model_code",
+      "type": "text"
+    },
+    "degem_nm": {
+      "target": "model",
+      "type": "text"
+    },
+    "shnat_yitzur": {
+      "target": "year",
+      "type": "text"
+    },
+    "mispar_rechavim_pailim": {
+      "target": "active_vehicle_count",
+      "type": "integer"
+    },
+    "mispar_rechavim_le_pailim": {
+      "target": "inactive_vehicle_count",
+      "type": "integer"
+    },
+    "kinuy_mishari": {
+      "target": "commercial_name",
+      "type": "text"
+    }
+  },
+  "publication_hold": [],
+  "coverage": {
+    "description": "מאגר זה מכיל מידע רשמי של דגמי רכב פרטי משנת יצור 1996 ומעלה ודגמי רכב מסחרי משנת יצור 1998 ומעלה כולל נתוני WLTP",
+    "as_of": null,
+    "date_precision": null,
+    "scope": "official source coverage; local snapshot date unknown",
+    "official_metadata_updated": "2026-10-30T03:35:39.108155",
+    "source_resource_id": "5e87a7a1-2f6f-41c1-8aec-7216d52a6cf6"
+  },
+  "verification": {
+    "official_headers_exact": true,
+    "official_metadata": "data/reports/official-metadata.json",
+    "field_semantics": "docs/REAL_SOURCES.md",
+    "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
+    "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
+    "sampled_records": 1000,
+    "full_validation_required": true
+  },
+  "max_unmatched_rate": 1,
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name."
+}

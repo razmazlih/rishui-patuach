@@ -1,0 +1,99 @@
+{
+  "id": "mot-2c33523f-87aa-44ec-a736-edbb0a82975e",
+  "source_file": "2c33523f-87aa-44ec-a736-edbb0a82975e.csv",
+  "resource_id": "2c33523f-87aa-44ec-a736-edbb0a82975e",
+  "kind": "recall_catalog",
+  "name": "Recall",
+  "version": "real-1",
+  "verified": true,
+  "synthetic": false,
+  "official_url": "https://data.gov.il/api/3/action/resource_show?id=2c33523f-87aa-44ec-a736-edbb0a82975e",
+  "encoding": "utf-8-sig",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "dialect": "csv",
+  "dialect_verified": true,
+  "key_mode": "fields",
+  "keys": [
+    "recall_id"
+  ],
+  "fields": {
+    "RECALL_ID": {
+      "target": "recall_id",
+      "type": "text"
+    },
+    "TOZAR_CD": {
+      "target": "manufacturer_code",
+      "type": "text"
+    },
+    "TOZAR_TEUR": {
+      "target": "manufacturer",
+      "type": "text"
+    },
+    "DEGEM": {
+      "target": "model",
+      "type": "text"
+    },
+    "SHNAT_RECALL": {
+      "target": "recall_year",
+      "type": "text"
+    },
+    "BUILD_BEGIN_A": {
+      "target": "production_begin_raw",
+      "type": "text"
+    },
+    "BUILD_END_A": {
+      "target": "production_end_raw",
+      "type": "text"
+    },
+    "SUG_RECALL": {
+      "target": "recall_type",
+      "type": "text"
+    },
+    "SUG_TAKALA": {
+      "target": "fault_type",
+      "type": "text"
+    },
+    "TEUR_TAKALA": {
+      "target": "description",
+      "type": "text"
+    },
+    "OFEN_TIKUN": {
+      "target": "remedy_description",
+      "type": "text"
+    },
+    "TKINA_EU": {
+      "target": "type_approval_code",
+      "type": "text"
+    },
+    "YEVUAN_TEUR": {
+      "ignore": true
+    },
+    "TELEPHONE": {
+      "ignore": true
+    },
+    "WEBSITE": {
+      "ignore": true
+    }
+  },
+  "publication_hold": [],
+  "coverage": {
+    "description": "קריאה חוזרת בטיחותית RECALL",
+    "as_of": null,
+    "date_precision": null,
+    "scope": "official source coverage; local snapshot date unknown",
+    "official_metadata_updated": "2026-10-30T03:35:24.975362",
+    "source_resource_id": "2c33523f-87aa-44ec-a736-edbb0a82975e"
+  },
+  "verification": {
+    "official_headers_exact": true,
+    "official_metadata": "data/reports/official-metadata.json",
+    "field_semantics": "docs/REAL_SOURCES.md",
+    "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
+    "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
+    "sampled_records": 1000,
+    "full_validation_required": true
+  },
+  "max_unmatched_rate": 1,
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name."
+}

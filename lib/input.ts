@@ -8,6 +8,7 @@ export function dataMode(value = process.env.DATA_MODE): 'demo' | 'live' {
   throw new Error('DATA_MODE must explicitly be demo or live');
 }
 export function sourceState(source: {availability: string; active_run_id: string | number | null; coverage: Record<string,unknown>; updated_at: string | Date}, found: boolean) {
+  if (source.availability === 'blocked') return 'quality_failed';
   if (source.availability === 'unavailable') return 'unavailable';
   if (source.coverage?.covered === false) return 'not_covered';
   if (!source.active_run_id) return 'not_loaded';

@@ -1,0 +1,67 @@
+{
+  "id": "mot-bb2355dc-9ec7-4f06-9c3f-3344672171da",
+  "source_file": "bb2355dc-9ec7-4f06-9c3f-3344672171da.csv",
+  "resource_id": "bb2355dc-9ec7-4f06-9c3f-3344672171da",
+  "kind": "ownership",
+  "name": "היסטוריית כלי רכב פרטיים (2)",
+  "version": "real-ownership-quarter-2",
+  "verified": true,
+  "synthetic": false,
+  "official_url": "https://data.gov.il/api/3/action/resource_show?id=bb2355dc-9ec7-4f06-9c3f-3344672171da",
+  "encoding": "utf-8-sig",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "dialect": "csv",
+  "dialect_verified": true,
+  "key_mode": "row_number",
+  "keys": [],
+  "fields": {
+    "mispar_rechev": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "baalut_dt": {
+      "target": "ownership_date_raw",
+      "type": "text"
+    },
+    "baalut": {
+      "target": "ownership_type",
+      "type": "text"
+    }
+  },
+  "publication_hold": [],
+  "coverage": {
+    "description": "המאגרים מציגים נתונים אודות כלי רכב פרטיים פעילים החל משנת 2017.\r\n\r\n",
+    "as_of": null,
+    "date_precision": null,
+    "scope": "official source coverage; local snapshot date unknown",
+    "official_metadata_updated": "2026-10-30T03:40:01.128782",
+    "source_resource_id": "bb2355dc-9ec7-4f06-9c3f-3344672171da",
+    "ownership_period_precision": "quarter",
+    "import_note": "תאריכי בעלות מוצגים כרבעונים בהתאם להסבר משרד התחבורה. אלו רישומי בעלות, לא מועדי מעבר מדויקים; תאריך סיום אינו ידוע ואין להסיק מספר ידיים. כפילויות המקור נשמרות.",
+    "official_limitations": "כלי רכב פרטיים פעילים משנת2017; הקובץ אינו כולל כלי רכב שהיה להם מספר קודם."
+  },
+  "verification": {
+    "official_headers_exact": true,
+    "official_metadata": "data/reports/official-metadata.json",
+    "field_semantics": "docs/REAL_SOURCES.md",
+    "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
+    "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
+    "sampled_records": 1000,
+    "full_validation_required": true,
+    "ownership_period_evidence": "docs/OWNERSHIP.md",
+    "ownership_date_interpretation": "Official government ownership search describes dates by calendar quarter; raw YYYYMM retained, displayed only as quarter. No exact start/end inferred."
+  },
+  "max_unmatched_rate": 1,
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name.",
+  "preserve_exact_events": true,
+  "derived_fields": {
+    "ownership_period": {
+      "source": "ownership_date_raw",
+      "transform": "ownership_quarter",
+      "evidence_url": "https://www.gov.il/he/Departments/DynamicCollectors/private_vehicle_history_2?skip=0"
+    }
+  }
+}

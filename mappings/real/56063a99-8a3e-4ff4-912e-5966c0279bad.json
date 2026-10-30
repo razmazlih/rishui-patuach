@@ -1,0 +1,77 @@
+{
+  "id": "mot-56063a99-8a3e-4ff4-912e-5966c0279bad",
+  "source_file": "56063a99-8a3e-4ff4-912e-5966c0279bad.csv",
+  "resource_id": "56063a99-8a3e-4ff4-912e-5966c0279bad",
+  "kind": "mileage",
+  "name": "היסטוריית כלי רכב פרטיים (1)",
+  "version": "real-1",
+  "verified": true,
+  "synthetic": false,
+  "official_url": "https://data.gov.il/api/3/action/resource_show?id=56063a99-8a3e-4ff4-912e-5966c0279bad",
+  "encoding": "utf-8-sig",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "dialect": "mot_envelope",
+  "dialect_verified": true,
+  "key_mode": "row_number",
+  "keys": [],
+  "fields": {
+    "mispar_rechev": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "mispar_manoa": {
+      "ignore": true
+    },
+    "kilometer_test_aharon": {
+      "target": "kilometers",
+      "type": "integer"
+    },
+    "shinui_mivne_ind": {
+      "target": "source_flag_shinui_mivne_ind",
+      "type": "text"
+    },
+    "gapam_ind": {
+      "target": "source_flag_gapam_ind",
+      "type": "text"
+    },
+    "shnui_zeva_ind": {
+      "target": "source_flag_shnui_zeva_ind",
+      "type": "text"
+    },
+    "shinui_zmig_ind": {
+      "target": "source_flag_shinui_zmig_ind",
+      "type": "text"
+    },
+    "rishum_rishon_dt": {
+      "target": "first_registration_date_raw",
+      "type": "text"
+    },
+    "mkoriut_nm": {
+      "target": "original_usage_description",
+      "type": "text"
+    }
+  },
+  "publication_hold": [],
+  "coverage": {
+    "description": "המאגרים מציגים נתונים אודות כלי רכב פרטיים פעילים החל משנת 2017.\r\n\r\n",
+    "as_of": null,
+    "date_precision": null,
+    "scope": "official source coverage; local snapshot date unknown",
+    "official_metadata_updated": "2026-10-30T03:44:55.052864",
+    "source_resource_id": "56063a99-8a3e-4ff4-912e-5966c0279bad"
+  },
+  "verification": {
+    "official_headers_exact": true,
+    "official_metadata": "data/reports/official-metadata.json",
+    "field_semantics": "docs/REAL_SOURCES.md",
+    "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
+    "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
+    "sampled_records": 1000,
+    "full_validation_required": true
+  },
+  "max_unmatched_rate": 1,
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name."
+}

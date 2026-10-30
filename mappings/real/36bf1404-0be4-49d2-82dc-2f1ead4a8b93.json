@@ -1,0 +1,71 @@
+{
+  "id": "mot-36bf1404-0be4-49d2-82dc-2f1ead4a8b93",
+  "source_file": "36bf1404-0be4-49d2-82dc-2f1ead4a8b93.csv",
+  "resource_id": "36bf1404-0be4-49d2-82dc-2f1ead4a8b93",
+  "kind": "recalls",
+  "name": "כלי רכב שלא ביצעו ריקול (קריאת שירות)",
+  "version": "real-1",
+  "verified": true,
+  "synthetic": false,
+  "official_url": "https://data.gov.il/api/3/action/resource_show?id=36bf1404-0be4-49d2-82dc-2f1ead4a8b93",
+  "encoding": "utf-8-sig",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "dialect": "csv",
+  "dialect_verified": true,
+  "key_mode": "row_number",
+  "keys": [],
+  "fields": {
+    "MISPAR_RECHEV": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "RECALL_ID": {
+      "target": "recall_id",
+      "type": "text"
+    },
+    "SUG_RECALL": {
+      "target": "recall_type",
+      "type": "text"
+    },
+    "SUG_TAKALA": {
+      "target": "fault_type",
+      "type": "text"
+    },
+    "TEUR_TAKALA": {
+      "target": "description",
+      "type": "text"
+    },
+    "TAARICH_PTICHA": {
+      "target": "announced_at",
+      "type": "date",
+      "formats": [
+        "iso_date",
+        "iso_datetime"
+      ]
+    }
+  },
+  "publication_hold": [],
+  "coverage": {
+    "description": "כל הרכבים שעברה מעל חצי שנה מאז שקיבלו מכתב מהיבואן על קריאה חוזרת ולא ביצעו את התיקון המבוקש.",
+    "as_of": null,
+    "date_precision": null,
+    "scope": "official source coverage; local snapshot date unknown",
+    "official_metadata_updated": "2026-10-30T03:35:21.057792",
+    "source_resource_id": "36bf1404-0be4-49d2-82dc-2f1ead4a8b93"
+  },
+  "verification": {
+    "official_headers_exact": true,
+    "official_metadata": "data/reports/official-metadata.json",
+    "field_semantics": "docs/REAL_SOURCES.md",
+    "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
+    "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
+    "sampled_records": 1000,
+    "full_validation_required": true
+  },
+  "max_unmatched_rate": 1,
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name.",
+  "verified_plate_link": true
+}

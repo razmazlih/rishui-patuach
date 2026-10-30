@@ -1,0 +1,136 @@
+{
+  "id": "mot-bf9df4e2-d90d-4c0a-a400-19e15af8e95f",
+  "source_file": "bf9df4e2-d90d-4c0a-a400-19e15af8e95f.csv",
+  "resource_id": "bf9df4e2-d90d-4c0a-a400-19e15af8e95f",
+  "kind": "vehicles",
+  "name": "מספרי רישוי של כלי רכב דו גלגליים",
+  "version": "real-1",
+  "verified": true,
+  "synthetic": false,
+  "official_url": "https://data.gov.il/api/3/action/resource_show?id=bf9df4e2-d90d-4c0a-a400-19e15af8e95f",
+  "encoding": "windows-1255",
+  "encoding_verified": true,
+  "delimiter": "|",
+  "dialect": "mot_envelope",
+  "dialect_verified": true,
+  "key_mode": "fields",
+  "keys": [
+    "plate"
+  ],
+  "fields": {
+    "mispar_rechev": {
+      "target": "plate",
+      "type": "text",
+      "required": true,
+      "normalize": "plate"
+    },
+    "tozeret_cd": {
+      "target": "manufacturer_code",
+      "type": "text"
+    },
+    "tozeret_nm": {
+      "target": "manufacturer",
+      "type": "text"
+    },
+    "tozeret_eretz_nm": {
+      "ignore": true
+    },
+    "degem_nm": {
+      "target": "model",
+      "type": "text"
+    },
+    "shnat_yitzur": {
+      "target": "year",
+      "type": "text"
+    },
+    "sug_delek_cd": {
+      "ignore": true
+    },
+    "sug_delek_nm": {
+      "target": "fuel",
+      "type": "text"
+    },
+    "mishkal_kolel": {
+      "ignore": true
+    },
+    "mida_zmig_kidmi": {
+      "ignore": true
+    },
+    "mida_zmig_ahori": {
+      "ignore": true
+    },
+    "kod_omes_zmig_kidmi": {
+      "ignore": true
+    },
+    "kod_omes_zmig_ahori": {
+      "ignore": true
+    },
+    "kod_mehirut_zmig_kidmi": {
+      "ignore": true
+    },
+    "kod_mehirut_zmig_ahori": {
+      "ignore": true
+    },
+    "nefach_manoa": {
+      "ignore": true
+    },
+    "hespek": {
+      "ignore": true
+    },
+    "misgeret": {
+      "ignore": true
+    },
+    "moed_aliya_lakvish": {
+      "target": "first_registration_date_raw",
+      "type": "text"
+    },
+    "sug_rechev_EU_cd": {
+      "ignore": true
+    },
+    "sug_rechev_cd": {
+      "ignore": true
+    },
+    "sug_rechev_nm": {
+      "ignore": true
+    },
+    "mispar_manoa": {
+      "ignore": true
+    },
+    "horaat_rishum": {
+      "ignore": true
+    },
+    "baalut": {
+      "target": "current_ownership_type",
+      "type": "text"
+    },
+    "mkoriut_nm": {
+      "ignore": true
+    },
+    "mispar_mekomot_leyd_nahag": {
+      "ignore": true
+    },
+    "mispar_mekomot": {
+      "ignore": true
+    }
+  },
+  "publication_hold": [],
+  "coverage": {
+    "description": "מאגר זה מכיל פרטים טכניים אודות כלי הרכב הדו גלגליים הפעילים (אופנועים)",
+    "as_of": null,
+    "date_precision": null,
+    "scope": "official source coverage; local snapshot date unknown",
+    "official_metadata_updated": "2026-10-30T03:35:36.881719",
+    "source_resource_id": "bf9df4e2-d90d-4c0a-a400-19e15af8e95f"
+  },
+  "verification": {
+    "official_headers_exact": true,
+    "official_metadata": "data/reports/official-metadata.json",
+    "field_semantics": "docs/REAL_SOURCES.md",
+    "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
+    "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
+    "sampled_records": 1000,
+    "full_validation_required": true
+  },
+  "max_unmatched_rate": 1,
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name."
+}
