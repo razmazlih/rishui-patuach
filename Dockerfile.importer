@@ -1,0 +1,10 @@
+FROM python:3.12-slim-bookworm
+WORKDIR /app
+COPY importer/requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+COPY importer ./importer
+COPY db ./db
+COPY mappings ./mappings
+COPY tests/fixtures ./tests/fixtures
+ENV DATA_DIR=/data
+ENTRYPOINT ["python", "-m", "importer.cli"]

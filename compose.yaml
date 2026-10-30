@@ -1,0 +1,46 @@
+name: rechev-local
+services:
+  db:
+    image: postgres:16.11-bookworm
+    environment:
+      POSTGRES_DB: vehicles
+      POSTGRES_USER: vehicle
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-vehicle_local}
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vehicle -d vehicles"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  web:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://vehicle:${POSTGRES_PASSWORD:-vehicle_local}@db:5432/vehicles
+      DATA_MODE: ${DATA_MODE:-demo}
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+  importer:
+    build:
+      context: .
+      dockerfile: Dockerfile.importer
+    profiles: ["tools"]
+    environment:
+      DATABASE_URL: postgresql://vehicle:${POSTGRES_PASSWORD:-vehicle_local}@db:5432/vehicles
+      DATA_MODE: ${DATA_MODE:-demo}
+      DATA_DIR: /data
+    volumes:
+      - ${DATA_DIR:-./data}/raw:/data/raw:ro
+      - ${DATA_DIR:-./data}/work:/data/work
+      - ${DATA_DIR:-./data}/reports:/data/reports
+      - ./mappings:/app/mappings:ro
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  pgdata:
