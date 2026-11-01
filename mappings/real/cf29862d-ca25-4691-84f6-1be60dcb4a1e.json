@@ -4,7 +4,7 @@
   "resource_id": "cf29862d-ca25-4691-84f6-1be60dcb4a1e",
   "kind": "vehicles",
   "name": "קובץ מספרי רישוי של כלי הרכב הציבוריים הפעילים",
-  "version": "real-1",
+  "version": "real-2-provenance-overlap",
   "verified": true,
   "synthetic": false,
   "official_url": "https://data.gov.il/api/3/action/resource_show?id=cf29862d-ca25-4691-84f6-1be60dcb4a1e",
@@ -106,7 +106,8 @@
     "date_precision": null,
     "scope": "official source coverage; local snapshot date unknown",
     "official_metadata_updated": "2026-10-30T03:40:25.208067",
-    "source_resource_id": "cf29862d-ca25-4691-84f6-1be60dcb4a1e"
+    "source_resource_id": "cf29862d-ca25-4691-84f6-1be60dcb4a1e",
+    "overlap_note": "מקור משלים: רשומות חופפות נשמרות ומוצגות עם מקורן, ללא מיזוג או בחירת ערך שרירותית."
   },
   "verification": {
     "official_headers_exact": true,
@@ -115,8 +116,10 @@
     "framing_encoding_evidence": "data/reports/official-framing-encoding-evidence.json",
     "framing_encoding_scope": "sampled; independent official selection; lexical values retained",
     "sampled_records": 1000,
-    "full_validation_required": true
+    "full_validation_required": true,
+    "overlap_reconciliation": "data/reports/public-registry-reconciliation.json"
   },
   "max_unmatched_rate": 1,
-  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name."
+  "matching_threshold_reason": "Official populations and update dates differ; unmatched rows are retained and fully counted, never guessed or matched by model name.",
+  "cross_source_overlap_policy": "retain_ambiguous"
 }

@@ -19,7 +19,7 @@ services:
     build: .
     environment:
       DATABASE_URL: postgresql://vehicle:${POSTGRES_PASSWORD:-vehicle_local}@db:5432/vehicles
-      DATA_MODE: ${DATA_MODE:-demo}
+      DATA_MODE: ${DATA_MODE:-live}
     ports:
       - "127.0.0.1:3000:3000"
     depends_on:
@@ -32,7 +32,7 @@ services:
     profiles: ["tools"]
     environment:
       DATABASE_URL: postgresql://vehicle:${POSTGRES_PASSWORD:-vehicle_local}@db:5432/vehicles
-      DATA_MODE: ${DATA_MODE:-demo}
+      DATA_MODE: ${DATA_MODE:-live}
       DATA_DIR: /data
     volumes:
       - ${DATA_DIR:-./data}/raw:/data/raw:ro

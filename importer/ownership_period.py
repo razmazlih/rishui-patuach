@@ -7,7 +7,7 @@ import re
 def ownership_quarter(raw):
     if raw in (None, ''):
         return None
-    if not isinstance(raw, str) or not re.fullmatch(r'[0-9]{4}(0[1-9]|1[0-2])', raw):
+    if not isinstance(raw, str) or not re.fullmatch(r'[0-9]{4}(0[1-9]|1[0-2])', raw) or raw[:4]=='0000':
         raise ValueError('ownership_period_format')
     return f'{raw[:4]}-Q{(int(raw[4:]) - 1) // 3 + 1}'
 

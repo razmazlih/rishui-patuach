@@ -35,7 +35,7 @@ def main():
                 if not original:raise ValueError('No same-SHA fully staged ownership source found')
                 old_run,file_id,old_report,file_sha=original
                 if not (old_report.get('scan_complete') and old_report.get('record_count_reliable') and old_report.get('records_rejected',0)==0 and old_report.get('decode_errors',0)==0 and old_report.get('structure_errors',0)==0):raise ValueError('Original ownership scan was not complete and valid')
-                counts=conn.execute("SELECT count(*),count(*) FILTER (WHERE coalesce(payload->>'ownership_date_raw','') !~ '^[0-9]{4}(0[1-9]|1[0-2])$'),count(*) FILTER (WHERE plate !~ '^[0-9]{8}$') FROM staging WHERE run_id=%s",(old_run,)).fetchone()
+                counts=conn.execute("SELECT count(*),count(*) FILTER (WHERE coalesce(payload->>'ownership_date_raw','') !~ '^[0-9]{4}(0[1-9]|1[0-2])$' OR substring(payload->>'ownership_date_raw',1,4)='0000'),count(*) FILTER (WHERE plate !~ '^[0-9]{8}$') FROM staging WHERE run_id=%s",(old_run,)).fetchone()
                 count,bad_dates,bad_plates=counts
                 if count!=old_report['records_read'] or bad_dates or bad_plates:raise ValueError('Full ownership record/date/plate validation failed')
                 run_id=conn.execute("INSERT INTO import_runs(source_id,file_id,state,fingerprint,mapping_version,importer_version) VALUES(%s,%s,'loading',%s,%s,%s) RETURNING id",(SOURCE,file_id,fingerprint,config['version'],real.VERSION)).fetchone()[0]

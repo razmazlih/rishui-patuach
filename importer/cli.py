@@ -16,7 +16,7 @@ csv.field_size_limit(1024 * 1024)
 KINDS = {'vehicles', 'specs', 'ownership', 'mileage', 'statuses', 'recalls'}
 
 def mode():
-    value = os.environ.get('DATA_MODE', 'demo')
+    value = os.environ.get('DATA_MODE', 'live')
     if value not in ('demo', 'live'):
         raise ValueError('DATA_MODE must be demo or live')
     return value

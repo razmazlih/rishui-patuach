@@ -15,7 +15,7 @@ class OwnershipPeriod(unittest.TestCase):
         self.assertEqual(result['ownership_period_precision'],'quarter')
         self.assertNotIn('start_date',result);self.assertNotIn('end_date',result)
     def test_invalid_never_guessed(self):
-        for value in ('202400','202413','2024-02','20240201','garbage'):
+        for value in ('000001','202400','202413','2024-02','20240201','garbage'):
             with self.assertRaises(ValueError):ownership_quarter(value)
     def test_missing_stays_unknown(self):
         self.assertIsNone(ownership_quarter(None));self.assertIsNone(ownership_quarter(''))

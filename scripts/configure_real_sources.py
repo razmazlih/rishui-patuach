@@ -99,7 +99,6 @@ def build(local, official, evidence):
         put('mispar_rechavim_pailim','active_vehicle_count',type='integer')
         put('mispar_rechavim_le_pailim','inactive_vehicle_count',type='integer')
     date_hold=[]
-    if kind=='ownership':date_hold=['baalut_dt_semantics_unverified']
     if stem=='053cea08-09bc-40ec-8f7a-156f0677aff3':date_hold=['strict_codec_failed']
     config={
       'id':'mot-'+rid,'source_file':local['name'],'resource_id':rid,'kind':kind,
@@ -135,7 +134,29 @@ def build(local, official, evidence):
     if kind=='vehicles' and all(any(v.get('target')==k for v in fields.values()) for k in COMPOSITE):
         config['candidate_composite_key_fields']=COMPOSITE
     if kind=='recalls':config['verified_plate_link']=True
-    if kind=='ownership':config['preserve_exact_events']=True
+    if kind=='ownership':
+        config['preserve_exact_events']=True
+        config['version']='real-ownership-quarter-2'
+        config['derived_fields']={'ownership_period':{'source':'ownership_date_raw','transform':'ownership_quarter','evidence_url':'https://www.gov.il/he/Departments/DynamicCollectors/private_vehicle_history_2?skip=0'}}
+        config['coverage']['ownership_period_precision']='quarter'
+        config['coverage']['import_note']='תאריכי בעלות מוצגים כרבעונים בהתאם להסבר משרד התחבורה. אלו רישומי בעלות, לא מועדי מעבר מדויקים; תאריך סיום אינו ידוע ואין להסיק מספר ידיים. כפילויות המקור נשמרות.'
+        config['coverage']['official_limitations']='כלי רכב פרטיים פעילים משנת2017; הקובץ אינו כולל כלי רכב שהיה להם מספר קודם.'
+        config['verification']['ownership_period_evidence']='docs/OWNERSHIP.md'
+        config['verification']['ownership_date_interpretation']='Official government ownership search describes dates by calendar quarter; raw YYYYMM retained, displayed only as quarter. No exact start/end inferred.'
+    if stem=='cf29862d-ca25-4691-84f6-1be60dcb4a1e':
+        # A repeated official registration does not authorize merging facts.
+        # Preserve independent profiles under the reviewed policy instead of
+        # restoring the obsolete whole-source rejection on regeneration.
+        audit_path=ROOT/'data/reports/public-registry-reconciliation.json'
+        if not audit_path.is_file():
+            raise ValueError('Full public registry reconciliation evidence required')
+        public_audit=json.loads(audit_path.read_text())
+        if public_audit.get('status')!='complete' or not public_audit.get('records'):
+            raise ValueError('Public registry reconciliation is incomplete')
+        config['version']='real-2-provenance-overlap'
+        config['cross_source_overlap_policy']='retain_ambiguous'
+        config['verification']['overlap_reconciliation']='data/reports/public-registry-reconciliation.json'
+        config['coverage']['overlap_note']='מקור משלים: רשומות חופפות נשמרות ומוצגות עם מקורן, ללא מיזוג או בחירת ערך שרירותית.'
     return config
 
 

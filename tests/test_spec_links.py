@@ -45,6 +45,9 @@ class SpecLinks(unittest.TestCase):
   with self.connect() as db:
    key=db.execute('SELECT spec_join_key(%s::jsonb)',(json.dumps(payload),)).fetchone()[0]
    self.assertEqual(json.loads(key),['P','1','42','2022'])
+   for target,value in [('model_code','43'),('model_type','M'),('year','2023')]:
+    other={**payload,target:value,'model':'same name'}
+    self.assertNotEqual(db.execute('SELECT spec_join_key(%s::jsonb)',(json.dumps(other),)).fetchone()[0],key)
    for target,value in [('model_code','42x'),('model_type',''),('year','2022-01')]:
     bad={**payload,target:value}
     self.assertIsNone(db.execute('SELECT spec_join_key(%s::jsonb)',(json.dumps(bad),)).fetchone()[0])
