@@ -4,7 +4,7 @@ PY := .venv/bin/python
 -include .env
 export DATABASE_URL DATA_MODE DATA_DIR
 
-.PHONY: setup db db-native up down dev start migrate demo inspect import rollback test unit integration api e2e check benchmark stage-real promote-real e2e-live modes
+.PHONY: setup db db-native up down dev start restart status migrate demo inspect import rollback test unit integration api e2e check benchmark stage-real promote-real e2e-live modes
 setup:
 	npm ci
 	python3 -m venv .venv
@@ -16,11 +16,15 @@ db:
 up:
 	docker compose up -d --build db web
 down:
-	docker compose down
+	$(PY) scripts/services.py down
 dev:
 	npm run dev
 start:
-	npm start
+	$(PY) scripts/services.py start
+restart:
+	$(PY) scripts/services.py restart
+status:
+	$(PY) scripts/services.py status
 migrate:
 	$(PY) -m importer.cli migrate
 demo:

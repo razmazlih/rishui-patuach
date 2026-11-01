@@ -12,6 +12,20 @@ if [ -z "${PG_BIN:-}" ]; then
   fi
 fi
 cluster="${DATA_DIR:-./data}/work/postgres"
+if [ "${1:-start}" = stop ]; then
+  if [ -f "$cluster/PG_VERSION" ] && "$PG_BIN/pg_ctl" -D "$cluster" status >/dev/null 2>&1; then
+    "$PG_BIN/pg_ctl" -D "$cluster" stop -m fast -w
+  fi
+  exit 0
+fi
+if [ "${1:-start}" = status ]; then
+  "$PG_BIN/pg_ctl" -D "$cluster" status
+  exit $?
+fi
+if [ "${1:-start}" != start ]; then
+  echo 'Usage: local-postgres.sh [start|stop|status]' >&2
+  exit 1
+fi
 mkdir -p "$cluster"
 if [ ! -f "$cluster/PG_VERSION" ]; then
   "$PG_BIN/initdb" -D "$cluster" -A trust --encoding=UTF8 --no-locale >/dev/null
