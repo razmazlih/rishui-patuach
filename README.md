@@ -94,7 +94,46 @@ make db                    # או make db-native אם נבחר PostgreSQL מקו
 make start                 # דורש build קודם; לפיתוח: make dev
 ```
 
-לחצו `Ctrl+C` לעצירת שרת האתר. `make down` עוצר את קונטיינרי Compose ושומר את נתוני המסד ב־volume. אין צורך לבצע שוב migration או יבוא בכל הפעלה רגילה; אחרי שינויי סכימה הריצו `make migrate`, ואחרי שינויי קוד בנו שוב לפני `make start`.
+אין צורך לבצע שוב migration או יבוא בכל הפעלה רגילה; אחרי שינויי סכימה הריצו `make migrate`, ואחרי שינויי קוד בנו שוב לפני `make start`.
+
+### עצירה והפעלה מחדש
+
+**אתר שמופעל מקומית עם `make dev` או `make start`:** לחצו `Ctrl+C` בטרמינל שבו האתר רץ. כדי להפעיל מחדש, הריצו באותה תיקיית פרויקט:
+
+```sh
+make dev                   # הפעלה מחדש בפיתוח
+# או, להפעלת גרסת הייצור המקומית:
+make start
+```
+
+לאחר שינויי קוד בגרסת הייצור, עצרו קודם עם `Ctrl+C`, ואז:
+
+```sh
+npm run build
+make start
+```
+
+עצירת האתר משאירה את PostgreSQL פועל. **אם האתר והמסד מופעלים ב־Docker Compose**, אפשר לעצור ולהפעיל מחדש מהטרמינל:
+
+```sh
+docker compose stop        # עצירת האתר והמסד, ללא מחיקת נתונים
+docker compose start       # הפעלת הקונטיינרים שנעצרו
+docker compose restart     # עצירה והפעלה מחדש של הקונטיינרים הקיימים
+# לאחר שינוי קוד, יש לבנות מחדש במקום restart:
+make up
+```
+
+`make down` מסיר את קונטיינרי Compose ושומר את נתוני המסד ב־volume; לאחריו השתמשו ב־`make up` ליצירתם מחדש. אם רק המסד פועל ב־Docker והאתר רץ מקומית, עצרו קודם את האתר עם `Ctrl+C`, הריצו `docker compose restart db`, ואז `make dev` או `make start`.
+
+**מסד מקומי שהופעל עם `make db-native`:** לאחר עצירת האתר, אפשר לעצור את ה־cluster בעזרת כלי PostgreSQL. החליפו את הנתיב אם `DATA_DIR` שונה:
+
+```sh
+pg_ctl -D "$PWD/data/work/postgres" stop -m fast
+make db-native             # הפעלה מחדש של המסד
+make start                 # או make dev
+```
+
+אם `pg_ctl` אינו ב־`PATH`, השתמשו בנתיב המלא אליו מתוך תיקיית `PG_BIN` ששימשה להפעלת המסד. העצירה שומרת את הנתונים ומנתקת חיבורים קיימים למסד.
 
 ## חלופות להפעלת המסד והאתר
 
