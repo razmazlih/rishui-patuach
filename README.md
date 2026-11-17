@@ -41,6 +41,10 @@
 
 [איך צולמו התמונות ואיך לעדכן אותן](docs/SCREENSHOTS.md) · [חוזה המקורות](docs/SOURCES.md) · [בדיקות ומצב הפרויקט](STATUS.md)
 
+## עדכוני אבטחה
+
+הפרויקט משתמש ב־Next.js 16.4.6 עם מדיניות `experimental.agentUpgrade: security`. לבדיקת שדרוגי אבטחה הריצו `npx next upgrade --agent=security`; השדרוג מעדכן גם את קובץ הנעילה ומחייב בדיקות לפני שילוב.
+
 ## התקנה ראשונה מהטרמינל
 
 דרישות: Git, Node.js 22 LTS, npm, Python 3.12 ומעלה, `make`, ו־Docker עם Compose להפעלת PostgreSQL 16. אפשר להשתמש במקום Docker ב־PostgreSQL 14 ומעלה כמפורט בהמשך. התלויות נעולות ב־`package-lock.json` וב־`importer/requirements.txt`.
